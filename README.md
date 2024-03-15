@@ -53,7 +53,7 @@ Most Popular Operating Systmes: <br/>
 <img src="https://i.imgur.com/RTEodWE.png" height="80%" width="80%" alt="Creating Splunk Dashboard"/>
 <p align="center"> 
   
-<p>I used the following search <b>index=main sourcetype=access_combined | top limit=20 platform</b> after extracting a field based on the operating system name and labeling it as platform. Then I added  <b>showperc=f</b> in order to remove the pecent column from my table to allow for a cleaner view in the dashboard
+<p>I used the following search <b>index=main sourcetype=access_combined | top limit=20 platform</b> after extracting a field based on the operating system name and labeling it as platform. Then I added  <b>showperc=f</b> in order to remove the pecent column from my table to allow for a cleaner view in the dashboard.
 </p>
 
 <p align="center">
@@ -61,15 +61,18 @@ Web Browsers with Most Failures: <br/>
 <img src="https://i.imgur.com/OZstsnI.png" height="80%" width="80%" alt="Creating Splunk Dashboard"/>
 <p align="center"> 
   
-<p>I used the following search <b>index=main sourcetype=access_combined | top limit=20 platform</b> after extracting a field based on the operating system name and labeling it as platform. Then I added  <b>showperc=f</b> in order to remove the pecent column from my table to allow for a cleaner view in the dashboard
+<p>To report failures by web browser, I created the following filter <b>index=main sourcetype=access_combined status>=400</b> since status codes of 400 or greater indicate an error. Then I selected User Agent and Top Values by Time, and my new search was automatically updated to <b>index=main sourcetype=access_combined status>=400 | timechart count by useragent limit=10</b>
+</p>
+<p>In order to keep a clean dashboard, I reduced the limit to 5 and added a filter removing browsers with a value of other, resulting in the updated search <b>index=main sourcetype=access_combined status>=400 | timechart count by useragent limit=5 useother=f</b>
+  
 </p>
 
 <br />
 
 <p align="center">
 <br />
-Change file permissions:  <br/>
-<img src="https://i.imgur.com/A43shaV.png" height="80%" width="80%" alt="Creating Splunk Dashboar"/>
+Lost Revenue:  <br/>
+<img src="https://i.imgur.com/APZuASl.png" height="80%" width="80%" alt="Creating Splunk Dashboar"/>
 <p align="center"> 
 
 <p>Only the user and group should have read and write permissions for the project_k.txt file, so I removed write permissions for other in the project_k.txt file by entering the command chmod o-w project_k.txt and confirmed the changes using the ls -l command.
@@ -80,8 +83,8 @@ Change file permissions:  <br/>
 
 <p align="center">
 <br />
-Change file permissions on a hidden file:  <br/>
-<img src="https://i.imgur.com/4scAuZp.png" height="80%" width="80%" alt="Creating Splunk Dashboar"/>
+Customer Locations:  <br/>
+<img src="https://i.imgur.com/gIb1t6x.png" height="80%" width="80%" alt="Creating Splunk Dashboar"/>
 <p align="center"> 
 
 <p>Used the ls -la command to view permissions on the hidden .project_x.txt file. Used the command chmod u=r,g=r .project_x.txt to change the permissions so that only the user and the group have read permissions. Confirmed the changes with the ls -la command.
@@ -90,14 +93,27 @@ Change file permissions on a hidden file:  <br/>
 
 <p align="center">
 <br />
-Change directory permissions:  <br/>
-<img src="https://i.imgur.com/WmdtABQ.png" height="80%" width="80%" alt="Creating Splunk Dashboar"/>
+Full Buttercup Enterprises Dashboard Over Last 60 Minutes:  <br/>
+<img src="https://i.imgur.com/MlSQRTf.png" height="80%" width="80%" alt="Creating Splunk Dashboar"/>
 <p align="center"> 
 
 <p>Only the user should have permissions for the drafts directory, so I removed the execute permissions for the group in the drafts directory by entering the command chmod g-x drafts and confirming the changes by entering the command ls -l.
 </p>  
 <br />
 <br />
+
+<p align="center">
+<br />
+Full Buttercup Enterprises Dashboard Over Last 24 Hours:  <br/>
+<img src="https://i.imgur.com/SjgoCIN.png" height="80%" width="80%" alt="Creating Splunk Dashboar"/>
+<p align="center"> 
+
+<p align="center">
+<br />
+Dashboard in Dark Mode:  <br/>
+<img src="https://i.imgur.com/zfdQUf4.png" height="80%" width="80%" alt="Creating Splunk Dashboar"/>
+<p align="center"> 
+
 <p align="center"> 
 Summary:  <br/>
 <p>Used the ls -l command and ls -a command to check the details of a directory and its files, including hidden files. Used the chmod command (e.g. chmod o-w project_k.txt) to remove file permissions for restricted files and used the ls-l command to confirm that changes were successful. Used the chmod command (e.g. chmod u=r,g=r .project_x.txt) to change file permissions on a hidden file and used the command ls -la to confirm the changes. Used the chmod command to change directory permissions (e.g. chmod g-x drafts) and confirmed the changes using the ls -l command.
