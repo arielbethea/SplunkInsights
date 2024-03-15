@@ -38,13 +38,11 @@
 <h2>Program walk-through:</h2>
 
 <p align="center">
-Check file and directory details: <br/>
-<img src="https://i.imgur.com/NvgHoCW.png" height="80%" width="80%" alt="Authorization Configuration Steps"/>
+Web Server Status Codes Over Time: <br/>
+<img src="https://i.imgur.com/yHcV2Dn.png" height="80%" width="80%" alt="Creating Splunk Dashboard"/>
 <p align="center"> 
 
-<p>Used the ls -l command to check the file and directory details and used the ls -a command to check for hidden files. Alternatively, the ls -la command can be used to simultaneously check details of files, hidden files, and directories.
-</p>
-<p>There is 1 directory, 4 files, and 1 hidden file.
+<p>I used the following search <b>index=main sourcetype=access_combined</b> to search the main index for all web server events and specified a timeframe over the last 60 minutes. In the search results, I selected the status field and filtered by Top Values by Time. My new search was then automatically updated to <b>index=main sourcetype=access_combined | timechart count by status limit=10</b> and allowed me to create my data visualization for these results. 
 </p>
 <br />
 
@@ -59,7 +57,7 @@ File permissions description:  <br/>
 <p align="center">
 <br />
 Change file permissions:  <br/>
-<img src="https://i.imgur.com/A43shaV.png" height="80%" width="80%" alt="Authorization Configuration Steps"/>
+<img src="https://i.imgur.com/A43shaV.png" height="80%" width="80%" alt="Creating Splunk Dashboar"/>
 <p align="center"> 
 
 <p>Only the user and group should have read and write permissions for the project_k.txt file, so I removed write permissions for other in the project_k.txt file by entering the command chmod o-w project_k.txt and confirmed the changes using the ls -l command.
@@ -71,7 +69,7 @@ Change file permissions:  <br/>
 <p align="center">
 <br />
 Change file permissions on a hidden file:  <br/>
-<img src="https://i.imgur.com/4scAuZp.png" height="80%" width="80%" alt="Authorization Configuration Steps"/>
+<img src="https://i.imgur.com/4scAuZp.png" height="80%" width="80%" alt="Creating Splunk Dashboar"/>
 <p align="center"> 
 
 <p>Used the ls -la command to view permissions on the hidden .project_x.txt file. Used the command chmod u=r,g=r .project_x.txt to change the permissions so that only the user and the group have read permissions. Confirmed the changes with the ls -la command.
@@ -81,7 +79,7 @@ Change file permissions on a hidden file:  <br/>
 <p align="center">
 <br />
 Change directory permissions:  <br/>
-<img src="https://i.imgur.com/WmdtABQ.png" height="80%" width="80%" alt="Authorization Configuration Steps"/>
+<img src="https://i.imgur.com/WmdtABQ.png" height="80%" width="80%" alt="Creating Splunk Dashboar"/>
 <p align="center"> 
 
 <p>Only the user should have permissions for the drafts directory, so I removed the execute permissions for the group in the drafts directory by entering the command chmod g-x drafts and confirming the changes by entering the command ls -l.
