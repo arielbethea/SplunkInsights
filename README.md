@@ -48,10 +48,22 @@ Web Server Status Codes Over Time: <br/>
 
 <br />
 <br />
+<p align="center">
+Most Popular Operating Systmes: <br/>
+<img src="https://i.imgur.com/RTEodWE.png" height="80%" width="80%" alt="Creating Splunk Dashboard"/>
 <p align="center"> 
-File permissions description:  <br/>
-<p>The permissions string contains 10 characters displaying whether we are looking at a directory (d) or file (-) and the read (r), write (w), and execute (x) permissions for the user, group, and other. - in place of r,w, or, x denotes a lack of that permission for a user, group, or other.</p>
-<p>The first character displays whether it’s a directory or file. The second through fourth characters display whether the user has read, write, and/or execute permissions. The fifth through seventh characters display whether the group has read, write, and/or execute permissions. The eighth through tenth characters display whether other has read, write, and/or execute permissions.</p>
+  
+<p>I used the following search <b>index=main sourcetype=access_combined | top limit=20 platform</b> after extracting a field based on the operating system name and labeling it as platform. Then I added  <b>showperc=f</b> in order to remove the pecent column from my table to allow for a cleaner view in the dashboard
+</p>
+
+<p align="center">
+Web Browsers with Most Failures: <br/>
+<img src="https://i.imgur.com/OZstsnI.png" height="80%" width="80%" alt="Creating Splunk Dashboard"/>
+<p align="center"> 
+  
+<p>I used the following search <b>index=main sourcetype=access_combined | top limit=20 platform</b> after extracting a field based on the operating system name and labeling it as platform. Then I added  <b>showperc=f</b> in order to remove the pecent column from my table to allow for a cleaner view in the dashboard
+</p>
+
 <br />
 
 <p align="center">
