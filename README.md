@@ -43,6 +43,9 @@ Challenge Task:  <br/>
 <p>Q1. How can we find events with a status of 200 that are not purchase events?
 </p>
 
+<p>This can be found using the search <b>index=main sourcetype=access_combined action!=purchase status=200</b>
+</p>
+
 <p align="center">
 <img src="https://i.imgur.com/E7wbVvg.png" height="80%" width="80%" alt="Creating Splunk Dashboard"/>
 <p align="center"> 
@@ -51,10 +54,26 @@ Challenge Task:  <br/>
 <p>Q2. How can we find events where someone had an error when trying to either add an item or remove an item from their cart? (Hint: A HTTP status code of 200 means the transaction was successful. A code of 400 or higher usually means that a failure occurred.)
 </p>
  
-<p>To find customers from countries outside of the United States, the following command can be used <b>index=main sourcetype=access_combined | iplocation clientip | | search Country!="United States" | geostats count by City</b>. 
+<p>I was able to find this using two search methods.
+</p>
+<p>The first method <b>index=main sourcetype=access_combined (remove OR addtocart) status>=400</b>
+</p>
+<p align="center">
+<img src="https://i.imgur.com/bVWeaJN.png" height="80%" width="80%" alt="Creating Splunk Dashboard"/>
+<p align="center"> 
+<br />
 </p>
 
+<p>The second method
+</p>
+<p><b>index=main sourcetype=access_combined (action=remove OR action=addtocart) status>=400</b>  
+</p>
 
+<p align="center">
+<img src="https://i.imgur.com/RJsXWus.png" height="80%" width="80%" alt="Creating Splunk Dashboard"/>
+<p align="center"> 
+<br />
+</p>
 
 <p align="center">
 Web Server Status Codes Over Time: <br/>
