@@ -1,4 +1,4 @@
-<h1>Creating a Dynamic and Intearctive Dashboard in Splunk</h1>
+<h1>Creating a Dynamic and Interactive Dashboard in Splunk</h1>
 
 <h2>Scenario</h2>
 
@@ -88,6 +88,23 @@ Customer Locations:  <br/>
 
 <p>I created a cluster map using the following search <b>index=main sourcetype=access_combined | iplocation clientip | geostats count by City</b> in order to see all website traffic origins, where the iplocation and geostats commands were used to count the events by City. 
 </p> 
+
+<p align="center">
+<br />
+Challenge Task:  <br/>
+<p>The map we’ve generated shows customers from all countries, but since Buttercup Enterprises is a US-based company, the Security team may only be interested in seeing customers who are NOT located in the US.
+Q1. How would you update your search to remove events coming from “United States” from your map?. 
+</p> 
+
+<p>To find customers from countries outside of the United States, the following command can be used <b>index=main sourcetype=access_combined | iplocation clientip | | search Country!="United States" | geostats count by City</b>. 
+</p>
+
+<p align="center">
+<img src="https://i.imgur.com/KxpDPcU.png" height="80%" width="80%" alt="Creating Splunk Dashboard"/>
+<p align="center"> 
+
+
+
 <br />
 
 <p align="center">
