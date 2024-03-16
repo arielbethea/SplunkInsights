@@ -75,7 +75,7 @@ Lost Revenue:  <br/>
 <img src="https://i.imgur.com/APZuASl.png" height="80%" width="80%" alt="Creating Splunk Dashboar"/>
 <p align="center"> 
 
-<p>I used the lookup command to extract product information from a csv file in the following search <b>index=main sourcetype=access_combined action=purchase | lookup product_codes.csv product_id</b>. In order to filter out failed purchase attempts, I updated to search to <b>index=main sourcetype=access_combined action=purchase status>=400 | lookup product_codes.csv product_id</b>. Finally, I added a sum function and timechart command to calculate the total number of failed purchases over the last 60 minutes <b>index=main sourcetype=access_combined action=purchase status>=400 | lookup product_codes.csv product_id | timechart sum(product_price)</b>.
+<p>I used the lookup command to extract product information from a csv file in the following search <b>index=main sourcetype=access_combined action=purchase | lookup product_codes.csv product_id</b>. In order to filter out failed purchase attempts, I updated to search to <b>index=main sourcetype=access_combined action=purchase status>=400 | lookup product_codes.csv product_id</b>. Finally, I added a sum function and timechart command to calculate the total number of failed purchases over the last 60 minutes, which was executed using the following search <b>index=main sourcetype=access_combined action=purchase status>=400 | lookup product_codes.csv product_id | timechart sum(product_price)</b>.
 </p>
 
 <br />
@@ -86,7 +86,7 @@ Customer Locations:  <br/>
 <img src="https://i.imgur.com/gIb1t6x.png" height="80%" width="80%" alt="Creating Splunk Dashboar"/>
 <p align="center"> 
 
-<p>Used the ls -la command to view permissions on the hidden .project_x.txt file. Used the command chmod u=r,g=r .project_x.txt to change the permissions so that only the user and the group have read permissions. Confirmed the changes with the ls -la command.
+<p>I created a cluster map using the following search <b>index=main sourcetype=access_combined | iplocation clientip | geostats count by City</b> in order to see all website traffic origins, where the iplocation and geostats commands were used to count the events by City. 
 </p> 
 <br />
 
