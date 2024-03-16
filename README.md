@@ -1,4 +1,4 @@
-<h1>Creating a Dyanic and Intearctive Dashboard in Splunk</h1>
+<h1>Creating a Dynamic and Intearctive Dashboard in Splunk</h1>
 
 <h2>Scenario</h2>
 
@@ -72,7 +72,7 @@ Web Browsers with Most Failures: <br/>
 <p align="center">
 <br />
 Lost Revenue:  <br/>
-<img src="https://i.imgur.com/APZuASl.png" height="80%" width="80%" alt="Creating Splunk Dashboar"/>
+<img src="https://i.imgur.com/APZuASl.png" height="80%" width="80%" alt="Creating Splunk Dashboard"/>
 <p align="center"> 
 
 <p>I used the lookup command to extract product information from a csv file in the following search <b>index=main sourcetype=access_combined action=purchase | lookup product_codes.csv product_id</b>. In order to filter out failed purchase attempts, I updated to search to <b>index=main sourcetype=access_combined action=purchase status>=400 | lookup product_codes.csv product_id</b>. Finally, I added a sum function and timechart command to calculate the total number of failed purchases over the last 60 minutes, which was executed using the following search <b>index=main sourcetype=access_combined action=purchase status>=400 | lookup product_codes.csv product_id | timechart sum(product_price)</b>.
@@ -83,7 +83,7 @@ Lost Revenue:  <br/>
 <p align="center">
 <br />
 Customer Locations:  <br/>
-<img src="https://i.imgur.com/gIb1t6x.png" height="80%" width="80%" alt="Creating Splunk Dashboar"/>
+<img src="https://i.imgur.com/gIb1t6x.png" height="80%" width="80%" alt="Creating Splunk Dashboard"/>
 <p align="center"> 
 
 <p>I created a cluster map using the following search <b>index=main sourcetype=access_combined | iplocation clientip | geostats count by City</b> in order to see all website traffic origins, where the iplocation and geostats commands were used to count the events by City. 
@@ -93,10 +93,10 @@ Customer Locations:  <br/>
 <p align="center">
 <br />
 Full Buttercup Enterprises Dashboard Over Last 60 Minutes:  <br/>
-<img src="https://i.imgur.com/MlSQRTf.png" height="80%" width="80%" alt="Creating Splunk Dashboar"/>
+<img src="https://i.imgur.com/MlSQRTf.png" height="80%" width="80%" alt="Creating Splunk Dashboard"/>
 <p align="center"> 
 
-<p>Only the user should have permissions for the drafts directory, so I removed the execute permissions for the group in the drafts directory by entering the command chmod g-x drafts and confirming the changes by entering the command ls -l.
+<p>To demonstrate the dynamic dashboard, I have provided captures of information over different timeframes, as well as in light and dark mode.
 </p>  
 <br />
 <br />
@@ -104,13 +104,13 @@ Full Buttercup Enterprises Dashboard Over Last 60 Minutes:  <br/>
 <p align="center">
 <br />
 Full Buttercup Enterprises Dashboard Over Last 24 Hours:  <br/>
-<img src="https://i.imgur.com/SjgoCIN.png" height="80%" width="80%" alt="Creating Splunk Dashboar"/>
+<img src="https://i.imgur.com/SjgoCIN.png" height="80%" width="80%" alt="Creating Splunk Dashboard"/>
 <p align="center"> 
 
 <p align="center">
 <br />
 Dashboard in Dark Mode:  <br/>
-<img src="https://i.imgur.com/zfdQUf4.png" height="80%" width="80%" alt="Creating Splunk Dashboar"/>
+<img src="https://i.imgur.com/zfdQUf4.png" height="80%" width="80%" alt="Creating Splunk Dashboard"/>
 <p align="center"> 
 
 <p align="center"> 
