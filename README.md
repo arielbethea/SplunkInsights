@@ -38,6 +38,25 @@
 <h2>Program walk-through:</h2>
 
 <p align="center">
+<br />
+Challenge Task:  <br/>
+<p>Q1. How can we find events with a status of 200 that are not purchase events?
+</p>
+
+<p align="center">
+<img src="https://i.imgur.com/E7wbVvg.png" height="80%" width="80%" alt="Creating Splunk Dashboard"/>
+<p align="center"> 
+<br />
+  
+<p>Q2. How can we find events where someone had an error when trying to either add an item or remove an item from their cart? (Hint: A HTTP status code of 200 means the transaction was successful. A code of 400 or higher usually means that a failure occurred.)
+</p>
+ 
+<p>To find customers from countries outside of the United States, the following command can be used <b>index=main sourcetype=access_combined | iplocation clientip | | search Country!="United States" | geostats count by City</b>. 
+</p>
+
+
+
+<p align="center">
 Web Server Status Codes Over Time: <br/>
 <img src="https://i.imgur.com/yHcV2Dn.png" height="80%" width="80%" alt="Creating Splunk Dashboard"/>
 <p align="center"> 
@@ -92,17 +111,17 @@ Customer Locations:  <br/>
 <p align="center">
 <br />
 Challenge Task:  <br/>
-<p>The map we’ve generated shows customers from all countries, but since Buttercup Enterprises is a US-based company, the Security team may only be interested in seeing customers who are NOT located in the US.
-Q1. How would you update your search to remove events coming from “United States” from your map?. 
-</p> 
+<p>The map we’ve generated shows customers from all countries, but since Buttercup Enterprises is a US-based company, the Security team may only be interested in seeing customers who are NOT located in the US.</p>
 
+<p>Q1. How would you update your search to remove events coming from “United States” from your map?
+</p>
+ 
 <p>To find customers from countries outside of the United States, the following command can be used <b>index=main sourcetype=access_combined | iplocation clientip | | search Country!="United States" | geostats count by City</b>. 
 </p>
 
 <p align="center">
 <img src="https://i.imgur.com/KxpDPcU.png" height="80%" width="80%" alt="Creating Splunk Dashboard"/>
 <p align="center"> 
-
 
 
 <br />
