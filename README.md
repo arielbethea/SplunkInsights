@@ -61,9 +61,9 @@ Web Browsers with Most Failures: <br/>
 <img src="https://i.imgur.com/OZstsnI.png" height="80%" width="80%" alt="Creating Splunk Dashboard"/>
 <p align="center"> 
   
-<p>To report failures by web browser, I created the following filter <b>index=main sourcetype=access_combined status>=400</b> since status codes of 400 or greater indicate an error. Then I selected User Agent and Top Values by Time, and my new search was automatically updated to <b>index=main sourcetype=access_combined status>=400 | timechart count by useragent limit=10</b>
+<p>To report failures by web browser, I created the following filter <b>index=main sourcetype=access_combined status>=400</b> since status codes of 400 or greater indicate an error. Then I selected User Agent and Top Values by Time, and my new search was automatically updated to <b>index=main sourcetype=access_combined status>=400 | timechart count by useragent limit=10</b>.
 </p>
-<p>In order to keep a clean dashboard, I reduced the limit to 5 and added a filter removing browsers with a value of other, resulting in the updated search <b>index=main sourcetype=access_combined status>=400 | timechart count by useragent limit=5 useother=f</b>
+<p>In order to keep a clean dashboard, I reduced the limit to 5 and added a filter removing browsers with a value of other, resulting in the updated search <b>index=main sourcetype=access_combined status>=400 | timechart count by useragent limit=5 useother=f</b>.
   
 </p>
 
@@ -75,10 +75,9 @@ Lost Revenue:  <br/>
 <img src="https://i.imgur.com/APZuASl.png" height="80%" width="80%" alt="Creating Splunk Dashboar"/>
 <p align="center"> 
 
-<p>Only the user and group should have read and write permissions for the project_k.txt file, so I removed write permissions for other in the project_k.txt file by entering the command chmod o-w project_k.txt and confirmed the changes using the ls -l command.
+<p>I used the lookup command to extract product information from a csv file in the following search <b>index=main sourcetype=access_combined action=purchase | lookup product_codes.csv product_id</b>. In order to filter out failed purchase attempts, I updated to search to <b>index=main sourcetype=access_combined action=purchase status>=400 | lookup product_codes.csv product_id</b>. Finally, I added a sum function and timechart command to calculate the total number of failed purchases over the last 60 minutes <b>index=main sourcetype=access_combined action=purchase status>=400 | lookup product_codes.csv product_id | timechart sum(product_price)</b>.
 </p>
-<p>File project_m.txt is a restricted file that should only have permissions for the user and none for group or other. Group had read permissions, so I removed read permissions for group in the project_m.txt file by entering the command chmod g-r project_m.txt and confirmed the changes using the ls -l command.
-</p>
+
 <br />
 
 <p align="center">
