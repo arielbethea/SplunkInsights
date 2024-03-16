@@ -76,6 +76,10 @@ Challenge Task:  <br/>
 </p>
 
 <p align="center">
+Creating Dynamic and Interactive Dashboards <br/>
+<p align="center"> 
+  
+<p align="center">
 Web Server Status Codes Over Time: <br/>
 <img src="https://i.imgur.com/yHcV2Dn.png" height="80%" width="80%" alt="Creating Splunk Dashboard"/>
 <p align="center"> 
@@ -147,12 +151,14 @@ Challenge Task:  <br/>
 
 <p align="center">
 <br />
+<p>To demonstrate the dynamic dashboard, I have provided captures of information over different timeframes, as well as in light and dark mode.
+</p>   
+<p align="center"> 
 Full Buttercup Enterprises Dashboard Over Last 60 Minutes:  <br/>
 <img src="https://i.imgur.com/MlSQRTf.png" height="80%" width="80%" alt="Creating Splunk Dashboard"/>
-<p align="center"> 
 
-<p>To demonstrate the dynamic dashboard, I have provided captures of information over different timeframes, as well as in light and dark mode.
-</p>  
+
+ 
 <br />
 <br />
 
@@ -167,11 +173,6 @@ Full Buttercup Enterprises Dashboard Over Last 24 Hours:  <br/>
 Dashboard in Dark Mode:  <br/>
 <img src="https://i.imgur.com/zfdQUf4.png" height="80%" width="80%" alt="Creating Splunk Dashboard"/>
 <p align="center"> 
-
-<p align="center"> 
-Summary:  <br/>
-<p>Used the ls -l command and ls -a command to check the details of a directory and its files, including hidden files. Used the chmod command (e.g. chmod o-w project_k.txt) to remove file permissions for restricted files and used the ls-l command to confirm that changes were successful. Used the chmod command (e.g. chmod u=r,g=r .project_x.txt) to change file permissions on a hidden file and used the command ls -la to confirm the changes. Used the chmod command to change directory permissions (e.g. chmod g-x drafts) and confirmed the changes using the ls -l command.
-</p>
 
 <br />
  
