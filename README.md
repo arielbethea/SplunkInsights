@@ -174,8 +174,7 @@ Dashboard in Dark Mode:  <br/>
 <img src="https://i.imgur.com/zfdQUf4.png" height="80%" width="80%" alt="Creating Splunk Dashboard"/>
 <p align="center"> 
 
-<br />
- 
+
 </p>
 
 <!--
